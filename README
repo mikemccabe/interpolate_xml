@@ -1,1 +1,23 @@
+I wrote this tool to help a friend adapt an HDR tool ('Photomatrix')
+to making time-lapse sequences.  It's entirely general, so it may be
+adaptable to other situations as well.
+
+
+From the usage message:
+
 This is a basic command-line tool for producing new xml files based in start and end files.
+Usage: interpolate_xml.py start.xml end.xml top_step current_step
+
+Compute step [current_step] of 0 to [top_step] steps between a given start and
+end xml file, replacing any numeric values with interpolated values.  Outputs
+a new xml file on standard out.
+
+Options:
+  --version   show program's version number and exit
+  -h, --help  show this help message and exit
+
+If current_step is 0, the values from start.xml are used; if current_step is
+top_step, the values from end.xml are used.  Thus there are top_step + 1 total
+steps (including step 0.)  If integer values occur in start.xml (they don't
+have a decimal point) then the interpolated value will be rounded to the
+nearest integer.
